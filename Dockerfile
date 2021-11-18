@@ -21,4 +21,5 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "a
    ./aws/install
 
 
+
 CMD mysql -h${CLUSTER} -u${USER_DB} -p${PASSWD_DB} ${SHARD} -s -e "${QUERY}"| aws s3 cp - s3://dbquerydumper-test/output_query.sql
