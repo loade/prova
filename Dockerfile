@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ Europe/Rome
 
-RUN apt-get update && apt-get -u -y upgrade && apt-get install -q -y gnupg2
+RUN apt-get update apt-get install -q -y gnupg2
 
 RUN apt adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5
 
