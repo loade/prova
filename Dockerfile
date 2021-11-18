@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ Europe/Rome
 
 RUN apt-get update \
-    && apt-get install -q -y gnupg2 \
+    && apt-get install --no-install-recommends -q -y gnupg2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -12,8 +12,8 @@ RUN apt-get adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A4A9406876
 
 RUN echo "deb http://repo.mysql.com/apt/ubuntu/ bionic mysql-5.7" > /etc/apt/sources.list.d/mysql.list
 
-RUN apt-get update && apt-get -q -y install \
-    python3 \
+RUN apt-get update && apt-get -q -y install --no-install-recommends \
+    python3=3.8 \
     python3-pip \
     unzip \
     curl \
